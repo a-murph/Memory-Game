@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Image from "./components/Image";
+import Header from "./components/Header";
 
 class App extends Component {
 	state = {
@@ -23,7 +24,8 @@ class App extends Component {
 		],
 		clicked: [],
 		score: 0,
-		hiscore: 0
+		hiscore: 0,
+		lastGuess: "none"
 	}
 
 	//RANDOMIZE ORDER OF IMAGES
@@ -43,7 +45,8 @@ class App extends Component {
 		if (this.state.clicked.indexOf(monster) === -1) { //if monster has not been clicked yet
 			this.setState({
 				clicked: [...this.state.clicked, monster], //add it to array of clicked monsters
-				score: this.state.score + 1 //increment score by 1
+				score: this.state.score + 1, //increment score by 1
+				lastGuess: true //set last guess to correct
 			}, () => { //then
 				if (this.state.score > this.state.hiscore) { //if new score is higher then high score
 					this.setState({
@@ -54,7 +57,8 @@ class App extends Component {
 		} else { //if monster has already been clicked before
 			this.setState({ //reset game
 				clicked: [],
-				score: 0
+				score: 0,
+				lastGuess: false //set last guess to incorrect
 			});
 		}
 	}
@@ -74,9 +78,12 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				{this.state.images.map((image, index) => (
-					<Image key={index} onClick={this.handleImageClick} image={image} />
-				))}
+				<Header score={this.state.score} hiscore={this.state.hiscore} lastGuess={this.state.lastGuess} />
+				<div>
+					{this.state.images.map((image, index) => (
+						<Image key={index} onClick={this.handleImageClick} image={image} />
+					))}
+				</div>
 			</div>
 		);
 	}
