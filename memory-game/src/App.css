@@ -1,0 +1,14 @@
+.image-container {
+	padding-top: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	margin: 0 auto;
+	max-width: 1000px;
+}
+.footer {
+	padding: 15px 0px;
+	background: #5133a4;
+	color: #eee;
+	text-align: center;
+}

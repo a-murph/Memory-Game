@@ -1,0 +1,32 @@
+.topbar {
+	display: flex;
+	justify-content: space-around;
+	font-size: 25px;
+	padding: 25px 0px;
+	background: #5133a4;
+	color: #eee;
+}
+.topbar-title {
+	font-weight: bold;
+}
+.topbar-scores-score {
+	padding-right: 10px;
+}
+.topbar-scores-hiscore {
+	padding-left: 10px;
+}
+
+.instructions {
+	text-align: center;
+	padding: 50px 0px 75px;
+	background: #333;
+	color: #eee;
+}
+.instructions-title {
+	font-size: 50px;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
+.instructions-text {
+	font-size: 25px;
+}
