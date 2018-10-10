@@ -20,7 +20,9 @@ class App extends Component {
 			"tobi.jpg",
 			"vaal.png",
 			"xeno.jpg",
-		]
+		],
+		clicked: [],
+		score: 0
 	}
 
 	scrambleImages = () => {
@@ -34,6 +36,10 @@ class App extends Component {
 		this.setState({images: newArr});
 	};
 
+	handleImageClick = event => {
+		this.scrambleImages();
+	};
+
 	componentDidMount() {
 		this.scrambleImages();
 	}
@@ -41,8 +47,8 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				{this.state.images.map(image => (
-					<Image image={image} />
+				{this.state.images.map((image, index) => (
+					<Image key={index} onClick={this.handleImageClick} image={image} />
 				))}
 			</div>
 		);
